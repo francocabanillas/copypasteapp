@@ -15,14 +15,16 @@
         <activity android:name=".ui.AddressActivity" />
         <activity android:name=".ui.ResetpasswordActivity" />
         <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.PresentationActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.PresentationActivity" />
+        <activity android:name=".ui.MainActivity">
+
         </activity>
     </application>
 
