@@ -9,14 +9,14 @@
     tools:context=".ui.LoginActivity">
 
     <LinearLayout
-        android:layout_width="272dp"
-        android:layout_height="687dp"
+        android:layout_width="377dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="484dp"
-            android:layout_marginTop="84dp"
+            android:layout_height="597dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -25,13 +25,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="¡Lo mejor para sus comensales!"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="216dp"
-                app:srcCompat="@drawable/logo2" />
+                android:layout_height="135dp"
+                app:srcCompat="@drawable/logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:orientation="horizontal"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,7 +46,7 @@
 
                 <EditText
                     android:id="@+id/editTextTextPersonName"
-                    android:layout_width="230dp"
+                    android:layout_width="346dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName" />
@@ -48,7 +54,7 @@
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="46dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/user" />
             </LinearLayout>
@@ -60,7 +66,7 @@
 
                 <EditText
                     android:id="@+id/editTextTextPassword"
-                    android:layout_width="230dp"
+                    android:layout_width="346dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPassword" />
@@ -68,10 +74,17 @@
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="36dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/password" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="ingresar"
+                android:text="Ingresar" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +93,7 @@
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="116dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Si no recuerdas tu contraseña da clic "
@@ -92,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:linksClickable="true"
+                    android:onClick="restablecer"
                     android:text="aquí"
                     android:textColor="#142065" />
 
@@ -108,6 +122,7 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="registrar"
                 android:text="Registrarse" />
         </LinearLayout>
 
