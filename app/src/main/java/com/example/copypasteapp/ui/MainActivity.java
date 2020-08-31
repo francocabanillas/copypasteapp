@@ -23,4 +23,8 @@ public class MainActivity extends AppCompatActivity {
     public void AddresActivityClic(View view){
         startActivity(new Intent(this,AddressActivity.class));
     }
+
+    public void ProfileActivityClic(View view){
+        startActivity(new Intent(this,ProfileActivity.class));
+    }
 }

@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="ProfileActivityClic"
                 app:srcCompat="@drawable/userprofile" />
         </LinearLayout>
 
@@ -55,10 +56,11 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jr. Ucayali 156"
+                android:onClick="AddresActivityClic"
+                android:text="Jr. Ucayali 156 ▼"
                 android:textColor="#0C185A"
                 android:textStyle="bold"
-                tools:text="Jr. Ucayali 156" />
+                tools:text="Jr. Ucayali 156 ▼" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,7 +75,6 @@
                 android:layout_gravity="center|center_horizontal|center_vertical"
                 android:layout_weight="1"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
-                android:onClick="AddresActivityClic"
                 app:srcCompat="@drawable/deliveryfood" />
         </LinearLayout>
     </LinearLayout>
