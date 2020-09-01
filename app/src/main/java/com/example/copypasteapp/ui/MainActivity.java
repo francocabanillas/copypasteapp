@@ -27,4 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void ProfileActivityClic(View view){
         startActivity(new Intent(this,ProfileActivity.class));
     }
+
+    public void FoodActivityClic(View view){
+        startActivity(new Intent(this,FoodActivity.class));
+    }
 }
