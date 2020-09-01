@@ -68,7 +68,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="82dp"
-            android:background="#DA8181">
+            android:background="#EDA8A8">
 
             <TextView
                 android:id="@+id/textView20"
@@ -91,13 +91,19 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:orientation="vertical"></LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="446dp" />
+            android:layout_height="411dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="85dp"
+            android:background="#94DDD7"
             android:orientation="horizontal">
 
             <TextView
@@ -121,6 +127,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+
     </LinearLayout>
 
     <LinearLayout

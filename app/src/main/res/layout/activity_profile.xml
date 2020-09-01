@@ -81,6 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:enabled="false"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPersonName"
                     android:text="fakonfu@gmail.com" />
@@ -100,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textPersonName"
                     android:text="999666999" />
 
@@ -118,6 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:enabled="false"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPersonName"
                     android:text="30/08/2020" />
