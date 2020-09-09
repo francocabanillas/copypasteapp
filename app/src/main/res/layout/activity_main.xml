@@ -1,312 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center|center_horizontal|center_vertical"
-    android:background="@drawable/fondov4"
+    android:background="@drawable/background3"
     android:gravity="center|center_horizontal|center_vertical"
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:orientation="horizontal"></LinearLayout>
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="236dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Elige un plato a la carta"
+        android:textColor="#171616"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="79dp">
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="236dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Escoge tu menú del día"
+        android:textColor="#171616"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="432dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Acompaña tu eleccion"
+        android:textColor="#171616"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="ProfileActivityClic"
-                app:srcCompat="@drawable/userprofile" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="312dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="404dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="____________________________________________"
+        android:textColor="#232020"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="204dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="432dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Tu historial de pedidos"
+        android:textColor="#171616"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:orientation="vertical"></LinearLayout>
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="460dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eboton4" />
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hola, Fabiola"
-                android:textColor="#000000"
-                tools:text="Hola, Fabiola" />
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="260dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eboton2" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="AddresActivityClic"
-                android:text="Jr. Ucayali 156 ▼"
-                android:textColor="#0C185A"
-                android:textStyle="bold"
-                tools:text="Jr. Ucayali 156 ▼" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="260dp"
+        android:onClick="FoodActivityClic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eboton" />
 
-        <LinearLayout
-            android:layout_width="53dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="460dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eboton3" />
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_horizontal|center_vertical"
-                android:layout_weight="1"
-                android:foregroundGravity="center_vertical|center|center_horizontal"
-                app:srcCompat="@drawable/deliveryfood" />
-        </LinearLayout>
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="82dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:onClick="AddresActivityClic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/carshop" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="651dp"
-        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="67dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="40dp"
+        android:onClick="ProfileActivityClic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/customer" />
 
-        <LinearLayout
-            android:layout_width="31dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Hola, Fabiola"
+        android:textAlignment="viewStart"
+        android:textColor="#171616"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Hola, Fabiola" />
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_light"
+        android:onClick="AddresActivityClic"
+        android:text="Jr. Ucayali 156 ▼"
+        android:textAlignment="viewStart"
+        android:textColor="#0F194E"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Jr. Ucayali 156 ▼" />
 
-        <LinearLayout
-            android:layout_width="353dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="139dp"
-                android:background="#F6A39D"
-                android:onClick="FoodActivityClic">
-
-                <LinearLayout
-                    android:layout_width="68dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="FoodActivityClic"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="161dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_light"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:onClick="FoodActivityClic"
-                    android:text="Menú del día"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:text="Menú del día" />
-
-                <LinearLayout
-                    android:layout_width="87dp"
-                    android:layout_height="match_parent"
-                    android:onClick="FoodActivityClic"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="45dp"
-                    android:layout_height="match_parent"
-                    android:onClick="FoodActivityClic"
-                    app:srcCompat="@drawable/menu" />
-
-                <LinearLayout
-                    android:layout_width="49dp"
-                    android:layout_height="match_parent"
-                    android:onClick="FoodActivityClic"
-                    android:orientation="horizontal"></LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Busque su plato a elegir"
-                    android:textColor="#979696" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="126dp"
-                android:background="#F6E979">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="476dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_light"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:text="Plato a la carta"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:text="Plato a la carta" />
-
-                <LinearLayout
-                    android:layout_width="411dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/platocarta" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="#5CD5C9">
-
-                <LinearLayout
-                    android:layout_width="407dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="452dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_light"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:text="Bebidas"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:text="Bebidas" />
-
-                <LinearLayout
-                    android:layout_width="436dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="374dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/bebida" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="132dp"
-                android:background="#BBEFEA">
-
-                <LinearLayout
-                    android:layout_width="18dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="229dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_light"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:text="Historial de pedidos"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:text="Historial de pedidos" />
-
-                <LinearLayout
-                    android:layout_width="23dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/pedidos" />
-
-                <LinearLayout
-                    android:layout_width="31dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"></LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"></LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"></LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
