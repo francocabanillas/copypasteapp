@@ -48,13 +48,14 @@ tools:context=".ui.RegisterActivity">
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/clientenombre"
                     android:layout_width="292dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="text"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="aaaa" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -72,13 +73,14 @@ tools:context=".ui.RegisterActivity">
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/correo"
                     android:layout_width="292dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textEmailAddress"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="aaa@gmail.com" />
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -94,13 +96,14 @@ tools:context=".ui.RegisterActivity">
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/celular"
                     android:layout_width="293dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="number"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="9951" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -117,13 +120,14 @@ tools:context=".ui.RegisterActivity">
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/clave"
                     android:layout_width="294dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPassword"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="123" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -140,14 +144,15 @@ tools:context=".ui.RegisterActivity">
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPassword2"
+                    android:id="@+id/clave2"
                     android:layout_width="295dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPassword"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="123" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -171,6 +176,7 @@ tools:context=".ui.RegisterActivity">
                 android:layout_height="wrap_content"
                 android:background="@color/colorBotonV2"
                 android:fontFamily="@font/roboto_bold"
+                android:onClick="registrar"
                 android:text="Registrarme"
                 android:textColor="#FFFFFF" />
         </LinearLayout>

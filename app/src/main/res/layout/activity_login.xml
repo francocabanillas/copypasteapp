@@ -31,13 +31,14 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/username"
                     android:layout_width="319dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPersonName"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="cabanillas.cf@gmail.com" />
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -53,13 +54,14 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/password"
                     android:layout_width="319dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPassword"
-                    android:maxLength="50" />
+                    android:maxLength="50"
+                    android:text="aaa025" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -75,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorBotonV2"
                 android:fontFamily="@font/roboto_bold"
-                android:onClick="ingresar"
+                android:onClick="login"
                 android:text="Ingresar"
                 android:textColor="#FFFFFF" />
 
