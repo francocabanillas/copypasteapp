@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout30"
+    android:layout_width="match_parent"
+    android:layout_height="86dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/nombre_articulo2"
+        android:layout_width="274dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/observacion2"
+        android:layout_width="274dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/precio2"
+        android:layout_width="82dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="PU. S/ 15.00"
+        android:textAlignment="viewStart"
+        android:textColor="#504848"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total2"
+        android:layout_width="94dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="S/ 15.00"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/categoria_nombre2"
+        android:layout_width="273dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bajar2"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorBotonV2"
+        android:fontFamily="@font/roboto_bold"
+        android:text="-"
+        android:textColor="@color/colorWhiteV2"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/subir2"
+        android:layout_width="31dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorBotonV2"
+        android:fontFamily="@font/roboto_bold"
+        android:text="+"
+        android:textColor="@color/colorWhiteV2"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cantidad2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

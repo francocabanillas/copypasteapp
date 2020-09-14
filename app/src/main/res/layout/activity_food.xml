@@ -73,7 +73,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerfood"
             android:layout_width="match_parent"
-            android:layout_height="371dp"
+            android:layout_height="361dp"
             android:scrollbars="horizontal" />
 
         <LinearLayout

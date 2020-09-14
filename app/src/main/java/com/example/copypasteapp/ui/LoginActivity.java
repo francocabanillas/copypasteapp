@@ -2,7 +2,9 @@ package com.example.copypasteapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,12 +20,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.copypasteapp.R;
+import com.example.copypasteapp.sqlite.DAOException;
+import com.example.copypasteapp.sqlite.PedidoDAO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,12 +66,18 @@ public class LoginActivity extends AppCompatActivity {
                     JSONArray jsonArray = new JSONArray(response);
                     Log.i("onResponse", jsonArray.toString());
                     if (jsonArray.length()>0){
+                        for (int i=0; i<jsonArray.length(); i++){
+                            JSONObject object = jsonArray.getJSONObject(i);
+                            guardarIDCliente(object.getString("id"));
+                        }
+                        limpiarSQL();
                         startActivity(intent);
                     }else
                     {
                         Toast toast = Toast.makeText(LoginActivity.this,"Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
+
                     };
 
                 } catch (JSONException e) {
@@ -98,6 +109,23 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    public void guardarIDCliente(String id){
+        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        GregorianCalendar calendar = new GregorianCalendar();
+        editor.putString("CodigoID",id);
+        editor.commit();
+    }
+
+    public void limpiarSQL(){
+        PedidoDAO dao = new PedidoDAO(this);
+        try {
+            dao.eliminarTodos();
+        } catch (DAOException e) {
+            Log.i("prepareDataInvoice", "====> " + e.getMessage());
+        }
     }
 
 }

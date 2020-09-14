@@ -129,7 +129,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:foregroundGravity="center_vertical|center|center_horizontal"
-        android:onClick="AddresActivityClic"
+        android:onClick="InvoiceActivityClic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/carshop" />
@@ -146,7 +146,7 @@
         app:srcCompat="@drawable/customer" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/nombre_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -162,7 +162,7 @@
         tools:text="Hola, Fabiola" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/nombre_direccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
