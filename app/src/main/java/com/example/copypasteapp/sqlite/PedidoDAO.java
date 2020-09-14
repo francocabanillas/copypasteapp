@@ -67,6 +67,7 @@ public class PedidoDAO  {
                     String precio = c.getString(c.getColumnIndex("precio"));
                     String observacion = c.getString(c.getColumnIndex("observacion"));
                     String cantidad = c.getString(c.getColumnIndex("cantidad"));
+
                     pedidoList.add(new Pedido(id,nombre,categoria,precio, observacion,cantidad));
 
                 } while (c.moveToNext());

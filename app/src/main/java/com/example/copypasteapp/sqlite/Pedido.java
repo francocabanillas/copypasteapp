@@ -5,13 +5,13 @@ public class Pedido {
     private String nombre;
     private String categoria;
     private String precio;
-    private String cantidad;
     private String observacion;
+    private String cantidad;
 
     public Pedido() {
     }
 
-    public Pedido(int id, String nombre, String categoria, String precio, String cantidad, String observacion) {
+    public Pedido(int id, String nombre, String categoria, String precio,  String observacion, String cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.categoria = categoria;

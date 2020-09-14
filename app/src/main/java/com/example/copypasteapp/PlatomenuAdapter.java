@@ -53,7 +53,7 @@ public class PlatomenuAdapter  extends RecyclerView.Adapter<PlatomenuAdapter.MyV
                 case R.id.botonplus:
                     PedidoDAO dao = new PedidoDAO(view.getContext());
                     try {
-
+                        //String nombre, String categoria, String precio, String observacion, String cantidad
                         dao.insertar(nombre_articulo.getText().toString(),categoria_nombre.getText().toString(),
                                 precio.getText().toString(),"Incluye entrada y bebida", "1");
                         context.startActivity(new Intent(context, InvoiceActivity.class));
