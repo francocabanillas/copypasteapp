@@ -38,7 +38,7 @@
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPersonName"
                     android:maxLength="50"
-                    android:text="cabanillas.cf@gmail.com" />
+                    android:text="cabanillas.@gmail.com" />
 
                 <ImageView
                     android:id="@+id/imageView2"
