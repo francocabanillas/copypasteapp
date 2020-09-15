@@ -3,6 +3,7 @@ package com.example.copypasteapp.sqlite;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.DashPathEffect;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +31,9 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         public EditText cantidad2;
         public Button subir2,bajar2;
 
+        public int vCantidad;
+        public double vPrecioU, vTotal, vTotalizado2;
+
         public MyViewHolder(View view) {
             super(view);
             nombre_articulo2 = (TextView) view.findViewById(R.id.nombre_articulo2);
@@ -51,19 +55,19 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
             switch (view.getId()) {
                 case R.id.subir2:
 
-                    String cantidad = cantidad2.getText().toString();
-                    if (cantidad.equals("")){cantidad2.setText("1");}
-                    else{cantidad2.setText(String.valueOf(Integer.parseInt(cantidad)+1));}
-
+                    vCantidad = vCantidad + 1;
+                    cantidad2.setText(String.valueOf(vCantidad));
+                    vTotal = vCantidad * vPrecioU;
+                    total2.setText("S/." + String.format("%.2f",vTotal));
                     break;
+
                 case R.id.bajar2:
 
-                    String cantidad_ = cantidad2.getText().toString();
-                    if (cantidad_.equals("")){cantidad2.setText("1");}
-                    else{
-                        if (!cantidad_.equals("1")) {
-                            cantidad2.setText(String.valueOf(Integer.parseInt(cantidad_)-1));
-                        }
+                    if (vCantidad > 1){
+                        vCantidad = vCantidad - 1;
+                        cantidad2.setText(String.valueOf(vCantidad));
+                        vTotal = vCantidad * vPrecioU;
+                        total2.setText("S/." + String.format("%.2f",vTotal));
                     }
 
                     break;
@@ -71,6 +75,8 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
                     throw new IllegalStateException("Unexpected value: " + view.getId());
             }
         }
+
+
     }
 
 
@@ -94,20 +100,20 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         holder.categoria_nombre2.setText(pedido.getCategoria());
         holder.cantidad2.setText(pedido.getCantidad());
         holder.observacion2.setText(pedido.getObservacion());
-
+        holder.vCantidad= Integer.parseInt(pedido.getCantidad());
+        holder.vPrecioU= Double.parseDouble(pedido.getPrecio().replace("S/ ", ""));
+        holder.vTotal = holder.vCantidad*holder.vPrecioU;
+        holder.total2.setText("S/." + String.format("%.2f",holder.vTotal));
         holder.setOnClickListeners();
-        Log.i("Probando", "observacion:" + pedido.getObservacion());
-//        if ((pedido.getPrecio().length()>0) && (pedido.getPrecio().length()>0)) {
-//            holder.total2.setText("Total S/ "+String.valueOf(Integer.parseInt(pedido.getPrecio())*Integer.parseInt(pedido.getCantidad())));
-//        }
-//        else
-//        {
-//            holder.total2.setText("Total: S/ 0.00");
-//        }
+
     }
+
+
 
     @Override
     public int getItemCount() {
         return pedidoList.size();
     }
+
+
 }

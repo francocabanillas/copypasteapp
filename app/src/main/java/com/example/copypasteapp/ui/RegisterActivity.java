@@ -82,19 +82,10 @@ public class RegisterActivity extends AppCompatActivity {
             StringRequest stringRequest= new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    try {
-                        JSONArray jsonArray = new JSONArray(response);
-                        Log.i("onResponse", jsonArray.toString());
-
-
-                            Toast toast = Toast.makeText(RegisterActivity.this,"Ha sido registrado", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            startActivity(intent);
-
-                    } catch (JSONException e) {
-                        Log.i("JSONException", e.getMessage());
-                    }
+                   startActivity(intent);
+                   Toast toast = Toast.makeText(RegisterActivity.this,"Ha sido registrado", Toast.LENGTH_LONG);
+                   toast.setGravity(Gravity.CENTER, 0, 0);
+                   toast.show();
                 }
             },
                     new Response.ErrorListener() {
