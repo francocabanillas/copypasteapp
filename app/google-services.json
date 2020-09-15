@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "10292026498",
+    "firebase_url": "https://cursocopypaste.firebaseio.com",
+    "project_id": "cursocopypaste",
+    "storage_bucket": "cursocopypaste.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10292026498:android:1f54575f0e2df8686c689b",
+        "android_client_info": {
+          "package_name": "com.example.copypasteapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10292026498-tqvrrs6qi5g0jff7fd0aqb18vh3ogk30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.copypasteapp",
+            "certificate_hash": "a5bbe9aee3d9fc76b2bbd19a5e4b6b706d152359"
+          }
+        },
+        {
+          "client_id": "10292026498-hs6ibpclolbmgdkioktl2ek0vkmar60b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1UZkEgE_CbcBrKtlk8LoLKdxD0Hk8-YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10292026498-hs6ibpclolbmgdkioktl2ek0vkmar60b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

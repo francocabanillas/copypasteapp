@@ -45,14 +45,12 @@ public class ProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
         String cadena = preferences.getString("CodigoID","");
         String url = "http://copypaste.atwebpages.com/index.php/cliente/"+cadena;
-        Log.i("prepareURL", url);
 
         StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    Log.i("prepareI", jsonArray.toString());
                     for (int i=0; i<jsonArray.length(); i++){
                         JSONObject object = jsonArray.getJSONObject(i);
                         cliente_nombre2.setText(object.getString("cliente_nombre"));;
@@ -83,7 +81,6 @@ public class ProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
         String cadena = preferences.getString("CodigoID","");
         String url = "http://copypaste.atwebpages.com/index.php/cliente/"+cadena;
-        Log.i("prepareURL", url);
 
         StringRequest stringRequest= new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override

@@ -19,12 +19,11 @@ public class PedidoDAO  {
     }
 
     public void insertar(String nombre, String categoria, String precio, String observacion, String cantidad) throws DAOException {
-        Log.i("PedidoDAO", "insertar()");
         SQLiteDatabase db = _dbHelper.getWritableDatabase();
         try {
             String[] args = new String[]{nombre, categoria, precio, observacion, cantidad};
             db.execSQL("INSERT INTO pedido(nombre, categoria, precio, observacion, cantidad) VALUES (?,?,?,?,?)", args);
-            Log.i("PedidoDAO", "Se insertó");
+
         } catch (Exception e) {
             throw new DAOException("PedidoDAO: Error al insertar: " + e.getMessage());
         } finally {
@@ -35,12 +34,10 @@ public class PedidoDAO  {
     }
 
     public void actualizar(String id, String cantidad) throws DAOException {
-        Log.i("PedidoDAO", "insertar()");
         SQLiteDatabase db = _dbHelper.getWritableDatabase();
         try {
             String[] args = new String[]{id, cantidad};
             db.execSQL("UPDATE pedido SET cantidad=? WHERE id=? ", args);
-            Log.i("PedidoDAO", "Se insertó");
         } catch (Exception e) {
             throw new DAOException("PedidoDAO: Error al insertar: " + e.getMessage());
         } finally {
@@ -51,12 +48,11 @@ public class PedidoDAO  {
     }
 
     public List<Pedido> obtener() throws DAOException {
-        Log.i("obtenerDao", "obtener()");
         SQLiteDatabase db = _dbHelper.getReadableDatabase();
         List<Pedido> pedidoList = new ArrayList<>();
         try {
             Cursor c = db.rawQuery("select id, nombre, categoria, precio, observacion, cantidad from pedido", null);
-            Log.i("obtenerDao", "Cantidad :" + String.valueOf(c.getCount()));
+
             if (c.getCount() > 0) {
                 c.moveToFirst();
 
@@ -84,7 +80,6 @@ public class PedidoDAO  {
     }
 
     public void eliminar(int id) throws DAOException {
-        Log.i("PedidoDAO", "eliminar()");
         SQLiteDatabase db = _dbHelper.getWritableDatabase();
 
         try {
@@ -100,7 +95,6 @@ public class PedidoDAO  {
     }
 
     public void eliminarTodos() throws DAOException {
-        Log.i("PedidoDAO", "eliminarTodos()");
         SQLiteDatabase db = _dbHelper.getWritableDatabase();
 
         try {
