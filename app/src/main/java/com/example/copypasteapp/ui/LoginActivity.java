@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    Log.i("onResponse", jsonArray.toString());
                     if (jsonArray.length()>0){
                         for (int i=0; i<jsonArray.length(); i++){
                             JSONObject object = jsonArray.getJSONObject(i);

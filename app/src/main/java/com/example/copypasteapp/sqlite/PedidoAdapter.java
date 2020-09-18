@@ -1,8 +1,11 @@
 package com.example.copypasteapp.sqlite;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.DashPathEffect;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,12 +26,17 @@ import java.util.List;
 public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHolder> {
 
     private List<Pedido> pedidoList;
+    private Context contextInvoice;
+    public TextView totalizado2;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView nombre_articulo2, observacion2, precio2, total2, categoria_nombre2;
         public EditText cantidad2;
-        public Button subir2,bajar2;
+        public Button subir2, bajar2;
+
+        public int vId, vCantidad;
+        public double vPrecioU, vTotal;
 
         public MyViewHolder(View view) {
             super(view);
@@ -40,8 +48,13 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
             cantidad2 = (EditText) view.findViewById(R.id.cantidad2);
             subir2 = (Button) view.findViewById(R.id.subir2);
             bajar2 = (Button) view.findViewById(R.id.bajar2);
+
+            View view1 = View.inflate(contextInvoice, R.layout.activity_invoice, null);
+            totalizado2 = (TextView) view1.findViewById(R.id.totalizado2);
+
         }
-        void setOnClickListeners(){
+
+        void setOnClickListeners() {
             subir2.setOnClickListener(this);
             bajar2.setOnClickListener(this);
         }
@@ -50,19 +63,34 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.subir2:
+                    vCantidad = vCantidad + 1;
+                    cantidad2.setText(String.valueOf(vCantidad));
+                    vTotal = vCantidad * vPrecioU;
+                    pedidoList.get(vId).setCantidad(String.valueOf(vCantidad));
+                    total2.setText("S/ " + String.format("%.2f", vTotal));
 
-                    String cantidad = cantidad2.getText().toString();
-                    if (cantidad.equals("")){cantidad2.setText("1");}
-                    else{cantidad2.setText(String.valueOf(Integer.parseInt(cantidad)+1));}
+                    PedidoDAO dao = new PedidoDAO(view.getContext());
+                    try {
+                        dao.actualizar(String.valueOf(pedidoList.get(vId).getId()), pedidoList.get(vId).getCantidad());
+                    } catch (DAOException e) {
+                        Log.i("onClick", "====> " + e.getMessage());
+                    }
 
                     break;
-                case R.id.bajar2:
 
-                    String cantidad_ = cantidad2.getText().toString();
-                    if (cantidad_.equals("")){cantidad2.setText("1");}
-                    else{
-                        if (!cantidad_.equals("1")) {
-                            cantidad2.setText(String.valueOf(Integer.parseInt(cantidad_)-1));
+                case R.id.bajar2:
+                    if (vCantidad > 1) {
+                        vCantidad = vCantidad - 1;
+                        cantidad2.setText(String.valueOf(vCantidad));
+                        vTotal = vCantidad * vPrecioU;
+                        pedidoList.get(vId).setCantidad(String.valueOf(vCantidad));
+                        total2.setText("S/ " + String.format("%.2f", vTotal));
+
+                        PedidoDAO dao2 = new PedidoDAO(view.getContext());
+                        try {
+                            dao2.actualizar(String.valueOf(pedidoList.get(vId).getId()), pedidoList.get(vId).getCantidad());
+                        } catch (DAOException e) {
+                            Log.i("onClick", "====> " + e.getMessage());
                         }
                     }
 
@@ -73,9 +101,9 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         }
     }
 
-
-    public PedidoAdapter(List<Pedido> pedidoList) {
+    public PedidoAdapter(List<Pedido> pedidoList, Context context) {
         this.pedidoList = pedidoList;
+        this.contextInvoice = context;
     }
 
     @Override
@@ -94,20 +122,38 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         holder.categoria_nombre2.setText(pedido.getCategoria());
         holder.cantidad2.setText(pedido.getCantidad());
         holder.observacion2.setText(pedido.getObservacion());
-
+        holder.vId=position;
+        holder.vCantidad= Integer.parseInt(pedido.getCantidad());
+        holder.vPrecioU= Double.parseDouble(pedido.getPrecio().replace("S/ ", ""));
+        holder.vTotal = holder.vCantidad*holder.vPrecioU;
+        totalizado2.setText("2");
+        holder.total2.setText("S/ " + String.format("%.2f",holder.vTotal));
         holder.setOnClickListeners();
-        Log.i("Probando", "observacion:" + pedido.getObservacion());
-//        if ((pedido.getPrecio().length()>0) && (pedido.getPrecio().length()>0)) {
-//            holder.total2.setText("Total S/ "+String.valueOf(Integer.parseInt(pedido.getPrecio())*Integer.parseInt(pedido.getCantidad())));
-//        }
-//        else
-//        {
-//            holder.total2.setText("Total: S/ 0.00");
-//        }
+
+
+        SumaTotal();
+
     }
+
+    public Double SumaTotal(){
+        Double total = 0.0;
+        List<Pedido> list = pedidoList;
+        for (int i = 0; i< list.size(); i++)
+        {
+            total = total +
+                    ( Integer.parseInt(list.get(i).getCantidad()) *
+                    Double.parseDouble(list.get(i).getPrecio().replace("S/ ", "")));
+        }
+        Log.i("SumaTotal", String.valueOf(total));
+        return total;
+    }
+
 
     @Override
     public int getItemCount() {
+        SumaTotal();
         return pedidoList.size();
     }
+
+
 }

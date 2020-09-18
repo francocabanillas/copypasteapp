@@ -18,7 +18,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i("SQLiteDatabase", "ok");
         String sql = "CREATE TABLE IF NOT EXISTS pedido (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, categoria TEXT NOT NULL, precio TEXT NOT NULL, observacion TEXT NOT NULL, cantidad TEXT NOT NULL)";
         db.execSQL(sql);
     }

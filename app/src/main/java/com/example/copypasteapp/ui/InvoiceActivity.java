@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.copypasteapp.Platomenu;
 import com.example.copypasteapp.PlatomenuAdapter;
@@ -26,6 +27,7 @@ public class InvoiceActivity extends AppCompatActivity {
     private List<Pedido> pedidoList = new ArrayList<>();
     private RecyclerView recyclerView;
     private PedidoAdapter pAdapter;
+    public TextView totalizado2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,10 @@ public class InvoiceActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        totalizado2 = (TextView) findViewById(R.id.totalizado2);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerInvoice);
 
-        pAdapter = new PedidoAdapter(pedidoList);
+        pAdapter = new PedidoAdapter(pedidoList,this.getBaseContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -48,6 +51,25 @@ public class InvoiceActivity extends AppCompatActivity {
 
     }
 
+    private void loadListFood(){
+        Double total = 0.0;
+        PedidoDAO dao = new PedidoDAO(getBaseContext());
+        try {
+            List<Pedido> list = dao.obtener();
+            for (int i = 0; i< list.size(); i++)
+            {
+                total = total +
+                        ( Integer.parseInt(list.get(i).getCantidad()) *
+                                Double.parseDouble(list.get(i).getPrecio().replace("S/ ", "")));
+            }
+            totalizado2.setText("S/ "+String.format("%.2f",total));
+            pAdapter.notifyDataSetChanged();
+
+        } catch (DAOException e) {
+            Log.i("prepareDataInvoice", "====> " + e.getMessage());
+        }
+    }
+
     public void prepareDataInvoice(){
         PedidoDAO dao = new PedidoDAO(getBaseContext());
         try {
@@ -57,8 +79,6 @@ public class InvoiceActivity extends AppCompatActivity {
                 pedidoList.add(list.get(i));
             }
 
-
-            Log.i("DataInvoice cant: ", String.valueOf(pedidoList.size()));
             pAdapter.notifyDataSetChanged();
 
         } catch (DAOException e) {
