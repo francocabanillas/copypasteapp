@@ -54,6 +54,7 @@
         android:layout_marginTop="564dp"
         android:background="@color/colorBotonV2"
         android:fontFamily="@font/roboto_bold"
+        android:onClick="guardarPedido"
         android:text="Confirmar pedido"
         android:textColor="@color/colorWhiteV2"
         app:layout_constraintStart_toStartOf="parent"
