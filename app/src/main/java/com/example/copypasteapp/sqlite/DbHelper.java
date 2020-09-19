@@ -13,12 +13,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public DbHelper(Context context) {
         // null porque se va a usar el SQLiteCursor
-        super(context, "pedido.db", null, 3);
+        super(context, "pedido.db", null, 4);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS pedido (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, categoria TEXT NOT NULL, precio TEXT NOT NULL, observacion TEXT NOT NULL, cantidad TEXT NOT NULL)";
+        String sql = "CREATE TABLE IF NOT EXISTS pedido (id INTEGER PRIMARY KEY AUTOINCREMENT, articulo_id TEXT NOT NULL, nombre TEXT NOT NULL, categoria TEXT NOT NULL, precio TEXT NOT NULL, observacion TEXT NOT NULL, cantidad TEXT NOT NULL)";
         db.execSQL(sql);
     }
 

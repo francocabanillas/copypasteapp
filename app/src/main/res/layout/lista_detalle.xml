@@ -107,6 +107,7 @@
         android:inputType="number"
         android:maxLength="2"
         android:text="11"
+        android:textColor="#040404"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

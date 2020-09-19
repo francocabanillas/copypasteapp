@@ -38,7 +38,7 @@
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPersonName"
                     android:maxLength="50"
-                    android:text="cabanillas.@gmail.com" />
+                    android:text="cabanillas.cf@gmail.com" />
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -98,7 +98,8 @@
                     android:textAlignment="textEnd"
                     android:textColor="#000000"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:id="@+id/textView3"

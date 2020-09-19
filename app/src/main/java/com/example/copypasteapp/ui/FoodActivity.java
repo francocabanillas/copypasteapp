@@ -16,8 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.copypasteapp.Platomenu;
-import com.example.copypasteapp.PlatomenuAdapter;
+import com.example.copypasteapp.list.Platomenu;
+import com.example.copypasteapp.list.PlatomenuAdapter;
 import com.example.copypasteapp.R;
 
 import org.json.JSONArray;
@@ -42,7 +42,7 @@ public class FoodActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerfood);
 
-        pAdapter = new PlatomenuAdapter(platomenuList);
+        pAdapter = new PlatomenuAdapter(platomenuList,true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -69,7 +69,7 @@ public class FoodActivity extends AppCompatActivity {
 
                     for (int i=0; i<jsonArray.length(); i++){
                         JSONObject object = jsonArray.getJSONObject(i);
-                        platomenuList.add(new Platomenu(object.getInt("id") , object.getString("articulo_nombre") , object.getString("categoria_nombre"),"S/ 8.00",object.getString("imagen_url")));
+                        platomenuList.add(new Platomenu(object.getInt("id") , object.getString("id"),object.getString("articulo_nombre") , object.getString("categoria_nombre"),"S/ 8.00",object.getString("imagen_url")));
                         pAdapter.notifyDataSetChanged();
                     }
 

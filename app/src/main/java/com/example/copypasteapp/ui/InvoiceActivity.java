@@ -17,10 +17,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.copypasteapp.Platomenu;
-import com.example.copypasteapp.PlatomenuAdapter;
 import com.example.copypasteapp.R;
+import com.example.copypasteapp.sharedpreference.Sharedpreference;
 import com.example.copypasteapp.sqlite.DAOException;
+import com.example.copypasteapp.sqlite.OnEditTextChanged;
 import com.example.copypasteapp.sqlite.Pedido;
 import com.example.copypasteapp.sqlite.PedidoAdapter;
 import com.example.copypasteapp.sqlite.PedidoDAO;
@@ -42,6 +42,8 @@ public class InvoiceActivity extends AppCompatActivity {
     public TextView totalizado2;
     public Button btnSave;
 
+    public double[] enteredNumber = new double[1000];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,16 @@ public class InvoiceActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerInvoice);
         btnSave = (Button) findViewById(R.id.btnSave);
 
-        pAdapter = new PedidoAdapter(pedidoList,this.getBaseContext());
+
+
+        pAdapter = new PedidoAdapter(pedidoList, new OnEditTextChanged() {
+            @Override
+            public void onTextChanged(int position, String charSequence) {
+                Log.i("TagC","posicion"+position+" "+charSequence);
+                enteredNumber[position]= Double.valueOf(charSequence.replace("S/ ", ""));
+                updateTotalValue();
+            }
+        });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -69,6 +80,30 @@ public class InvoiceActivity extends AppCompatActivity {
                 mostrarMensaje();
             }
         });
+        updateTotalValue();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        prepareDataInvoice();
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarMensaje();
+            }
+        });
+        updateTotalValue();
+    }
+
+    private void updateTotalValue(){
+        Double sum=0.0;
+        for (int i= 0; i<1000; i++) {
+            sum += enteredNumber[i];
+        }
+
+        totalizado2.setText("Total S/ "+String.format("%.2f",sum));
     }
 
     private void mostrarMensaje(){
@@ -76,8 +111,8 @@ public class InvoiceActivity extends AppCompatActivity {
         JSONObject json = new JSONObject();
 
         try {
-            String token = "fPhcuOFOpUw:APA91bHwTmYKIuMag3YjM1EDn8eOCv483UQYhOlO-yTJPn2Nv924_1zX2D_817cdmM5AUcTKnAqui_cXinxKO5JTZYZEJO6DJywHTrQbQp0d4MV7CB-tcDOXVawPui-CgQk9Gk31dhjJ";
-            json.put("to",token);
+            Sharedpreference preference = new Sharedpreference();
+            json.put("to",preference.readToken(this));
             JSONObject notification = new JSONObject();
             notification.put("titulo", "Ha sido confirmado");
             notification.put("detalle","El pedido 15155 está siendo atendido, pronto llegaremos a su domicilio");
@@ -134,6 +169,10 @@ public class InvoiceActivity extends AppCompatActivity {
         } catch (DAOException e) {
             Log.i("prepareDataInvoice", "====> " + e.getMessage());
         }
+
+    }
+
+    public void guardarPedido() {
 
     }
 }

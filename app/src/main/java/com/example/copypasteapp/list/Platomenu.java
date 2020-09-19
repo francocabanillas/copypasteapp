@@ -1,14 +1,16 @@
-package com.example.copypasteapp;
+package com.example.copypasteapp.list;
 
 public class Platomenu {
     private int id;
+    private String articulo_id;
     private String articulo_nombre;
     private String categoria_nombre;
     private String precio;
     private String imagen;
 
-    public Platomenu(int id, String articulo_nombre, String categoria_nombre, String precio, String imagen) {
+    public Platomenu(int id,String articulo_id, String articulo_nombre, String categoria_nombre, String precio, String imagen) {
         this.id = id;
+        this.articulo_id = articulo_id;
         this.articulo_nombre = articulo_nombre;
         this.categoria_nombre = categoria_nombre;
         this.precio = precio;
@@ -21,6 +23,14 @@ public class Platomenu {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getArticulo_id() {
+        return articulo_id;
+    }
+
+    public void setArticulo_id(String articulo_id) {
+        this.articulo_id = articulo_id;
     }
 
     public String getArticulo_nombre() {

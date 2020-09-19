@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.DashPathEffect;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +30,8 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
     private List<Pedido> pedidoList;
     private Context contextInvoice;
     public TextView totalizado2;
+
+    private OnEditTextChanged onEditTextChanged;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -92,6 +96,9 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
 
                         PedidoDAO dao2 = new PedidoDAO(view.getContext());
                         try {
+                            Log.i("Position B", ""+vId);
+                            Log.i("objt Id B", ""+pedidoList.get(vId).getId());
+
                             dao2.actualizar(String.valueOf(pedidoList.get(vId).getId()), pedidoList.get(vId).getCantidad());
                         } catch (DAOException e) {
                             Log.i("onClick", "====> " + e.getMessage());
@@ -105,9 +112,9 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         }
     }
 
-    public PedidoAdapter(List<Pedido> pedidoList, Context context) {
+    public PedidoAdapter(List<Pedido> pedidoList, OnEditTextChanged onEditTextChanged) {
         this.pedidoList = pedidoList;
-        this.contextInvoice = context;
+        this.onEditTextChanged = onEditTextChanged;
     }
 
     @Override
@@ -119,7 +126,24 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
     }
 
     @Override
-    public void onBindViewHolder(PedidoAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(PedidoAdapter.MyViewHolder holder, final int position) {
+        holder.total2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                onEditTextChanged.onTextChanged(position, charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         Pedido pedido = pedidoList.get(position);
         holder.nombre_articulo2.setText(pedido.getNombre());
         holder.precio2.setText(pedido.getPrecio());
@@ -133,6 +157,8 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         totalizado2.setText("2");
         holder.total2.setText("S/ " + String.format("%.2f",holder.vTotal));
         holder.setOnClickListeners();
+
+
 
         SumaTotal();
     }

@@ -31,6 +31,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text="Selecciona tu menú"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold" />
 

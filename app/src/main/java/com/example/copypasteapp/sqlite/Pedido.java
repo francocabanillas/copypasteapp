@@ -2,6 +2,7 @@ package com.example.copypasteapp.sqlite;
 
 public class Pedido {
     private int id;
+    private String articulo_id;
     private String nombre;
     private String categoria;
     private String precio;
@@ -11,8 +12,9 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(int id, String nombre, String categoria, String precio,  String observacion, String cantidad) {
+    public Pedido(int id, String articulo_id, String nombre, String categoria, String precio,  String observacion, String cantidad) {
         this.id = id;
+        this.articulo_id = articulo_id;
         this.nombre = nombre;
         this.categoria = categoria;
         this.precio = precio;
@@ -26,6 +28,14 @@ public class Pedido {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getArticulo_id() {
+        return articulo_id;
+    }
+
+    public void setArticulo_id(String articulo_id) {
+        this.articulo_id = articulo_id;
     }
 
     public String getNombre() {
