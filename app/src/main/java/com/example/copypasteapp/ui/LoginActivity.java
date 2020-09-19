@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.copypasteapp.R;
+import com.example.copypasteapp.sharedpreference.Sharedpreference;
 import com.example.copypasteapp.sqlite.DAOException;
 import com.example.copypasteapp.sqlite.PedidoDAO;
 
@@ -27,10 +28,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -52,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View v){
         final Intent intent = new Intent(this, MainActivity.class);
+        final Sharedpreference preference = new Sharedpreference();
         final EditText username = (EditText)findViewById(R.id.username);
         final EditText password = (EditText)findViewById(R.id.password);
 
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (jsonArray.length()>0){
                         for (int i=0; i<jsonArray.length(); i++){
                             JSONObject object = jsonArray.getJSONObject(i);
-                            guardarIDCliente(object.getString("id"));
+                            preference.saveIdCliente(object.getString("id"),getApplicationContext());
                         }
                         limpiarSQL();
                         startActivity(intent);
@@ -108,14 +108,6 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
-    }
-
-    public void guardarIDCliente(String id){
-        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        GregorianCalendar calendar = new GregorianCalendar();
-        editor.putString("CodigoID",id);
-        editor.commit();
     }
 
     public void limpiarSQL(){

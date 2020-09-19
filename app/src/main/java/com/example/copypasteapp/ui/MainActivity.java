@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.copypasteapp.R;
+import com.example.copypasteapp.sharedpreference.Sharedpreference;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,21 +53,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,FoodActivity.class));
     }
 
-    public void guardarDireccionCliente(String id, String latitud, String longitud){
-        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        GregorianCalendar calendar = new GregorianCalendar();
-        editor.putString("DireccionID",id);
-        editor.putString("DirecLat",latitud);
-        editor.putString("DirecLong",longitud);
-        editor.commit();
-    }
-
     private void prepareInfoData() {
         final TextView nombre_usuario = findViewById(R.id.nombre_usuario);
         final TextView nombre_direccion = findViewById(R.id.nombre_direccion);
-        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
-        String cadena = preferences.getString("CodigoID","");
+
+        final Sharedpreference preference = new Sharedpreference();
+
+        String cadena = preference.readIdCliente(this);
+
         String url = "http://copypaste.atwebpages.com/index.php/cliente/"+cadena;
 
         StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -78,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject object = jsonArray.getJSONObject(i);
                         nombre_usuario.setText("Hola, "+object.getString("cliente_nombre"));;
                         if (object.getString("direccion_id")!=null) {
-                            guardarDireccionCliente(object.getString("direccion_id"),object.getString("latitud"),object.getString("longitud"));
+                            preference.saveIdDireccion(object.getString("direccion_id"),getApplicationContext());
+                            preference.saveLatitud(object.getString("latitud"),getApplicationContext());
+                            preference.saveLongitud(object.getString("longitud"),getApplicationContext());
                             nombre_direccion.setText(object.getString("nombre_direccion")+ " ▼");
                         }
                         else

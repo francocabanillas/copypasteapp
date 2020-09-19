@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.copypasteapp.R;
+import com.example.copypasteapp.sharedpreference.Sharedpreference;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,8 +43,9 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView cliente_nombre2 = findViewById(R.id.cliente_nombre2);
         final TextView correo2 = findViewById(R.id.correo2);
         final TextView celular2 = findViewById(R.id.celular2);
-        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
-        String cadena = preferences.getString("CodigoID","");
+
+        Sharedpreference preference = new Sharedpreference();
+        String cadena = preference.readIdCliente(this);
         String url = "http://copypaste.atwebpages.com/index.php/cliente/"+cadena;
 
         StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -78,8 +80,8 @@ public class ProfileActivity extends AppCompatActivity {
     public void MainActivityClic(View view){
 
         final TextView cliente_nombre2 = findViewById(R.id.cliente_nombre2);
-        SharedPreferences preferences = getSharedPreferences("PREFERENCIA", Context.MODE_PRIVATE);
-        String cadena = preferences.getString("CodigoID","");
+        Sharedpreference preference = new Sharedpreference();
+        String cadena = preference.readIdCliente(this);
         String url = "http://copypaste.atwebpages.com/index.php/cliente/"+cadena;
 
         StringRequest stringRequest= new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {

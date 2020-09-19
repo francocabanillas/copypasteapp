@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnSave"
         android:layout_width="256dp"
         android:layout_height="48dp"
         android:layout_marginStart="76dp"

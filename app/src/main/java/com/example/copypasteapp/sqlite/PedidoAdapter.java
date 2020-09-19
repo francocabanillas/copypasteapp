@@ -37,9 +37,11 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
 
         public int vId, vCantidad;
         public double vPrecioU, vTotal;
+        public Context context;
 
         public MyViewHolder(View view) {
             super(view);
+            context = view.getContext();
             nombre_articulo2 = (TextView) view.findViewById(R.id.nombre_articulo2);
             observacion2 = (TextView) view.findViewById(R.id.observacion2);
             precio2 = (TextView) view.findViewById(R.id.precio2);
@@ -49,7 +51,7 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
             subir2 = (Button) view.findViewById(R.id.subir2);
             bajar2 = (Button) view.findViewById(R.id.bajar2);
 
-            View view1 = View.inflate(contextInvoice, R.layout.activity_invoice, null);
+            View view1 = View.inflate(context, R.layout.activity_invoice, null);
             totalizado2 = (TextView) view1.findViewById(R.id.totalizado2);
 
         }
@@ -68,6 +70,7 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
                     vTotal = vCantidad * vPrecioU;
                     pedidoList.get(vId).setCantidad(String.valueOf(vCantidad));
                     total2.setText("S/ " + String.format("%.2f", vTotal));
+                    totalizado2.setText("2");
 
                     PedidoDAO dao = new PedidoDAO(view.getContext());
                     try {
@@ -85,6 +88,7 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
                         vTotal = vCantidad * vPrecioU;
                         pedidoList.get(vId).setCantidad(String.valueOf(vCantidad));
                         total2.setText("S/ " + String.format("%.2f", vTotal));
+                        totalizado2.setText("2");
 
                         PedidoDAO dao2 = new PedidoDAO(view.getContext());
                         try {
@@ -130,9 +134,7 @@ public class PedidoAdapter  extends RecyclerView.Adapter<PedidoAdapter.MyViewHol
         holder.total2.setText("S/ " + String.format("%.2f",holder.vTotal));
         holder.setOnClickListeners();
 
-
         SumaTotal();
-
     }
 
     public Double SumaTotal(){
