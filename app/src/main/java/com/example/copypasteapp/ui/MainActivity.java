@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         prepareInfoData();
     }
 
+    public void ListinvoiceActivityClic(View view){
+        startActivity(new Intent(this,ListinvoiceActivity.class));
+    }
+
     public void FoodActivityClic(View view){
         startActivity(new Intent(this,FoodActivity.class));
     }

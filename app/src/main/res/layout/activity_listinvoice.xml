@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@drawable/background5"
-tools:context=".ui.SpecialActivity">
+tools:context=".ui.ListinvoiceActivity">
 
 <LinearLayout
     android:layout_width="48dp"
@@ -29,7 +29,7 @@ tools:context=".ui.SpecialActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Selecciona tu plato a la carta"
+        android:text="Historial de pedidos"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -46,9 +46,9 @@ tools:context=".ui.SpecialActivity">
         android:orientation="vertical"></LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerspecial"
+        android:id="@+id/recyclerlistinvoice"
         android:layout_width="match_parent"
-        android:layout_height="479dp"
+        android:layout_height="425dp"
         android:scrollbars="horizontal" />
 
 

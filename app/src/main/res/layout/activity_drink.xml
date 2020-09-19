@@ -32,7 +32,7 @@ tools:context=".ui.DrinkActivity">
         android:text="Selecciona tu bebida"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -48,7 +48,7 @@ tools:context=".ui.DrinkActivity">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerdrink"
         android:layout_width="match_parent"
-        android:layout_height="479dp"
+        android:layout_height="465dp"
         android:scrollbars="horizontal" />
 
 
