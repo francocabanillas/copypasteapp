@@ -73,7 +73,7 @@ public class ListinvoiceActivity extends AppCompatActivity {
                                 Clientepedido(object.getInt("id") ,
                                               object.getString("id"),
                                             object.getString("fecha"),
-                                            object.getString("estado") ,
+                                            object.getString("estado"),
                                             object.getString("precio_total")));
                         pAdapter.notifyDataSetChanged();
                     }
