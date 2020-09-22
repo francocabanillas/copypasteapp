@@ -58,7 +58,7 @@ tools:context=".ui.RegisterActivity">
                     android:text="aaaa" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageView40"
                     android:layout_width="36dp"
                     android:layout_height="32dp"
                     android:layout_weight="1"
@@ -80,7 +80,7 @@ tools:context=".ui.RegisterActivity">
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textEmailAddress"
                     android:maxLength="50"
-                    android:text="aaa@gmail.com" />
+                    android:text="" />
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -103,10 +103,10 @@ tools:context=".ui.RegisterActivity">
                     android:fontFamily="@font/roboto_light"
                     android:inputType="number"
                     android:maxLength="50"
-                    android:text="9951" />
+                    android:text="" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageView35"
                     android:layout_width="36dp"
                     android:layout_height="31dp"
                     android:layout_weight="1"
@@ -127,7 +127,7 @@ tools:context=".ui.RegisterActivity">
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPassword"
                     android:maxLength="50"
-                    android:text="123" />
+                    android:text="" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -152,7 +152,7 @@ tools:context=".ui.RegisterActivity">
                     android:fontFamily="@font/roboto_light"
                     android:inputType="textPassword"
                     android:maxLength="50"
-                    android:text="123" />
+                    android:text="" />
 
                 <ImageView
                     android:id="@+id/imageView4"

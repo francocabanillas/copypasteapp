@@ -155,7 +155,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto_light"
-        android:text="Hola, Fabiola"
+        android:text="Hola, "
         android:textAlignment="viewStart"
         android:textColor="#171616"
         android:textSize="14sp"
@@ -172,13 +172,12 @@
         android:layout_marginTop="64dp"
         android:fontFamily="@font/roboto_light"
         android:onClick="AddresActivityClic"
-        android:text="Jr. Ucayali 156 ▼"
+        android:text="Dirección"
         android:textAlignment="viewStart"
         android:textColor="#0F194E"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Jr. Ucayali 156 ▼" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

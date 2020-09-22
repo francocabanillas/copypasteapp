@@ -15,13 +15,8 @@ import androidx.core.app.NotificationCompat;
 import com.example.copypasteapp.R;
 import com.example.copypasteapp.sharedpreference.Sharedpreference;
 import com.example.copypasteapp.ui.LoginActivity;
-import com.example.copypasteapp.ui.MainActivity;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
-import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class Fcm extends FirebaseMessagingService {

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.ListinvoiceActivity"></activity>
+        <activity android:name=".ui.PhotoActivity"></activity>
+        <activity android:name=".ui.ListinvoiceActivity" />
         <activity android:name=".ui.DrinkActivity" />
         <activity android:name=".ui.SpecialActivity" />
 
